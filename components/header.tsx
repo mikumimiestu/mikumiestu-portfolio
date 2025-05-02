@@ -123,7 +123,7 @@ export function Header() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-x-0 top-[72px] z-40 transform rounded-2xl bg-background/95 p-6 shadow-lg backdrop-blur-lg transition-all duration-300 ease-in-out md:hidden mx-4",
+          "fixed mt-4 inset-x-0 top-[72px] z-40 transform rounded-2xl bg-background/95 p-6 shadow-lg backdrop-blur-lg transition-all duration-300 ease-in-out md:hidden mx-4",
           isOpen 
             ? "translate-y-0 opacity-100" 
             : "translate-y-[-100%] opacity-0 pointer-events-none"
