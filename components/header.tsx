@@ -97,10 +97,10 @@ export function Header() {
                   {item.name}
                 </button>
               ))}
-              <div className="ml-2 flex items-center gap-2">
+              {/* <div className="ml-2 flex items-center gap-2">
                 <ModeToggle />
                 <Button size="sm" className="rounded-full">Resume</Button>
-              </div>
+              </div> */}
             </nav>
 
             {/* Mobile Navigation */}
@@ -144,7 +144,7 @@ export function Header() {
               {item.name}
             </button>
           ))}
-          <Button className="mt-4 rounded-xl">Resume</Button>
+          {/* <Button className="mt-4 rounded-xl">Resume</Button> */}
         </nav>
       </div>
     </header>

@@ -55,9 +55,9 @@ export function About() {
             </p>
             <div className="flex gap-4 pt-2">
               <Button asChild>
-                <Link href="#contact" scroll={false}>Contact Me</Link>
+                {/* <Link href="#contact" scroll={false}>Contact Me</Link> */}
               </Button>
-              <Button variant="outline">Download CV</Button>
+              {/* <Button variant="outline">Download CV</Button> */}
             </div>
           </div>
 
