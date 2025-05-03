@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, Instagram } from "lucide-react";
 
 export function Footer() {
   return (
@@ -12,7 +12,7 @@ export function Footer() {
         </div>
         <div className="flex items-center justify-center gap-4">
           <Link
-            href="https://github.com"
+            href="https://github.com/mikumimiestu"
             target="_blank"
             rel="noreferrer"
             className="rounded-full h-10 w-10 flex items-center justify-center text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
@@ -21,7 +21,7 @@ export function Footer() {
             <span className="sr-only">GitHub</span>
           </Link>
           <Link
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/zaki-mushthafa-billah-1a1762287/"
             target="_blank"
             rel="noreferrer"
             className="rounded-full h-10 w-10 flex items-center justify-center text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
@@ -30,7 +30,16 @@ export function Footer() {
             <span className="sr-only">LinkedIn</span>
           </Link>
           <Link
-            href="https://twitter.com"
+            href="https://www.instagram.com/zakimshbll/"
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-full h-10 w-10 flex items-center justify-center text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
+          >
+            <Instagram className="h-5 w-5" />
+            <span className="sr-only">Instagram</span>
+          </Link>
+          <Link
+            href="https://x.com/Jakiine"
             target="_blank"
             rel="noreferrer"
             className="rounded-full h-10 w-10 flex items-center justify-center text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
@@ -39,7 +48,7 @@ export function Footer() {
             <span className="sr-only">Twitter</span>
           </Link>
           <Link
-            href="mailto:hello@example.com"
+            href="mailto:zaki@technovagroupinc.com"
             className="rounded-full h-10 w-10 flex items-center justify-center text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
           >
             <Mail className="h-5 w-5" />

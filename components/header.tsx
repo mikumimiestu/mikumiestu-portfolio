@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
-import { ModeToggle } from "./mode-toggle";
+import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -19,6 +19,12 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +53,7 @@ export function Header() {
   const handleNavClick = (href: string) => {
     const element = document.getElementById(href.substring(1));
     if (element) {
-      const offset = 80; // Adjust this value based on your header height
+      const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -58,6 +64,14 @@ export function Header() {
     }
     setIsOpen(false);
   };
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <header
@@ -71,14 +85,15 @@ export function Header() {
           "rounded-full transition-all duration-300 backdrop-blur-md border px-4",
           isScrolled 
             ? "bg-background/80 py-2" 
-            : "bg-background/50 py-3"
+            : "bg-background/50 py-3",
+          "border-border/50"
         )}>
           <div className="flex items-center justify-between">
             <button
               onClick={() => handleNavClick("#home")}
               className="text-xl font-bold transition-transform hover:scale-105"
             >
-              Portfolio<span className="text-primary">.</span>
+              Mikumiestu<span className="text-primary">.</span>
             </button>
 
             {/* Desktop Navigation */}
@@ -97,15 +112,38 @@ export function Header() {
                   {item.name}
                 </button>
               ))}
-              {/* <div className="ml-2 flex items-center gap-2">
-                <ModeToggle />
-                <Button size="sm" className="rounded-full">Resume</Button>
-              </div> */}
+              <div className="ml-2 flex items-center gap-2">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="rounded-full"
+                  onClick={toggleTheme}
+                  aria-label="Toggle theme"
+                >
+                  {theme === "dark" ? (
+                    <Sun className="h-5 w-5" />
+                  ) : (
+                    <Moon className="h-5 w-5" />
+                  )}
+                </Button>
+              </div>
             </nav>
 
             {/* Mobile Navigation */}
             <div className="flex items-center gap-2 md:hidden">
-              <ModeToggle />
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="rounded-full"
+                onClick={toggleTheme}
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+              </Button>
               <Button
                 variant="ghost"
                 size="icon"
@@ -124,6 +162,7 @@ export function Header() {
       <div
         className={cn(
           "fixed mt-4 inset-x-0 top-[72px] z-40 transform rounded-2xl bg-background/95 p-6 shadow-lg backdrop-blur-lg transition-all duration-300 ease-in-out md:hidden mx-4",
+          "border border-border/50",
           isOpen 
             ? "translate-y-0 opacity-100" 
             : "translate-y-[-100%] opacity-0 pointer-events-none"
@@ -144,7 +183,6 @@ export function Header() {
               {item.name}
             </button>
           ))}
-          {/* <Button className="mt-4 rounded-xl">Resume</Button> */}
         </nav>
       </div>
     </header>

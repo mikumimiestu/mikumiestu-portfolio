@@ -7,107 +7,163 @@ import { useInView } from "@/hooks/use-in-view";
 import { cn } from "@/lib/utils";
 import { BookOpen, Briefcase, GraduationCap } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export function About() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, threshold: 0.2 });
 
+  // Timeline items data
+  const timelineItems = [
+    {
+      id: 1,
+      title: "Frontend Developer",
+      company: "Tech Nova Group",
+      period: "2024 - Now",
+      description: "Leading frontend development for enterprise applications using React and Next.js.",
+      icon: <Briefcase className="h-5 w-5 text-primary" />,
+      color: "bg-primary/10"
+    },
+    {
+      id: 2,
+      title: "CEO & Owner",
+      company: "Tech Nova Group",
+      period: "2024 - Now",
+      description: "Leading a team of developers to deliver high-quality software solutions.",
+      icon: <Briefcase className="h-5 w-5 text-emerald-500" />,
+      color: "bg-emerald-500/10"
+    },
+    {
+      id: 3,
+      title: "Informatics Engineering",
+      company: "University Putra Indonesia 'YPTK' Padang",
+      period: "2023 - Now",
+      description: "Bachelor's degree with focus on web technologies and software engineering.",
+      icon: <GraduationCap className="h-5 w-5 text-blue-500" />,
+      color: "bg-blue-500/10"
+    }
+  ];
+
   return (
     <section
       id="about"
       ref={ref}
-      className="py-20 bg-muted/20"
+      className="py-24 relative overflow-hidden"
     >
+      
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center text-center mb-12">
-          <h2 className={cn(
-            "text-3xl font-bold tracking-tight sm:text-4xl mb-4 transition-all duration-700",
-            isInView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          )}>
+        {/* Animated header section */}
+        <motion.div 
+          className="flex flex-col items-center text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">
             About Me
           </h2>
-          <div className={cn(
-            "h-1 w-20 bg-primary rounded-full mb-6 transition-all duration-700 delay-100",
-            isInView ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
-          )}></div>
-          <p className={cn(
-            "text-lg text-muted-foreground max-w-3xl transition-all duration-700 delay-200",
-            isInView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          )}>
-            I'm a passionate developer with over 2 years of experience creating beautiful and functional web experiences.
-          </p>
-        </div>
+          <motion.div
+            className="h-1 w-20 bg-gradient-to-r from-primary to-secondary rounded-full mb-6"
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : {}}
+            transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          />
+          <motion.p
+            className="text-xl text-muted-foreground max-w-3xl leading-relaxed"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
+            A passionate developer with over 2 years of experience creating beautiful and functional web experiences.
+          </motion.p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className={cn(
-            "space-y-6 transition-all duration-700 delay-300",
-            isInView ? "translate-x-0 opacity-100" : "translate-x-[-20px] opacity-0"
-          )}>
-            <h3 className="text-2xl font-semibold">My Journey</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              I'am ZAKI MUSHTHAFA BILLAH from Indonesia, a passionate developer with a strong focus on frontend technologies. I specialize in creating responsive and user-friendly web applications using modern frameworks like React and Next.js.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              With a background in both design and development, I bring a unique perspective to projects, bridging the gap between beautiful aesthetics and functional code. I'm passionate about creating intuitive, accessible, and performant web experiences that delight users.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              When I'm not coding, you can find me exploring new design trends, contributing to open-source projects, or enjoying outdoor adventures.
-            </p>
-            <div className="flex gap-4 pt-2">
-              <Button asChild>
-                {/* <Link href="#contact" scroll={false}>Contact Me</Link> */}
-              </Button>
-              {/* <Button variant="outline">Download CV</Button> */}
-            </div>
-          </div>
-
-          <div className={cn(
-            "grid grid-cols-1 gap-6 transition-all duration-700 delay-400",
-            isInView ? "translate-x-0 opacity-100" : "translate-x-[20px] opacity-0"
-          )}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          {/* Personal story section */}
+          <motion.div
+            className="space-y-8"
+            initial={{ opacity: 0, x: -20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.6, duration: 0.6 }}
+          >
+            <h3 className="text-3xl font-semibold">My <span className="text-primary">Journey</span></h3>
+            
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold mb-6">Experience & Education</h3>
+              <p className="text-muted-foreground leading-relaxed text-lg">
+                I'm <span className="font-medium text-foreground">Zaki Mushthafa Billah</span> from Indonesia, a passionate developer with a strong focus on frontend technologies. I specialize in creating responsive and user-friendly web applications using modern frameworks like React and Next.js.
+              </p>
               
-              <Card className="overflow-hidden border-none shadow-md bg-card hover:shadow-lg transition-shadow">
-                <CardContent className="p-6 flex gap-4">
-                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <Briefcase className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-medium">Frontend Developer</h4>
-                    <p className="text-muted-foreground">Tech Nova Group • 2024 - Now</p>
-                    <p className="mt-2">Leading frontend development for enterprise applications.</p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="overflow-hidden border-none shadow-md bg-card hover:shadow-lg transition-shadow">
-                <CardContent className="p-6 flex gap-4">
-                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <Briefcase className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-medium">CEO & Owner</h4>
-                    <p className="text-muted-foreground">Tech Nova Group • 2024 - Now</p>
-                    <p className="mt-2">Leading a team of developers to deliver high-quality software solutions.</p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="overflow-hidden border-none shadow-md bg-card hover:shadow-lg transition-shadow">
-                <CardContent className="p-6 flex gap-4">
-                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <GraduationCap className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-medium">Informatics Engineering</h4>
-                    <p className="text-muted-foreground">University Putra Indonesia "YPTK" Padang • 2023 - Now</p>
-                    <p className="mt-2">Bachelor's degree with focus on web technologies.</p>
-                  </div>
-                </CardContent>
-              </Card>
+              <div className="relative pl-6 border-l-2 border-primary/20">
+                <div className="absolute left-0 top-0 w-3 h-3 rounded-full bg-primary mt-1 -ml-[7px]"></div>
+                <p className="text-muted-foreground leading-relaxed text-lg">
+                  With a background in both design and development, I bring a unique perspective to projects, bridging the gap between beautiful aesthetics and functional code.
+                </p>
+              </div>
+              
+              <div className="relative pl-6 border-l-2 border-primary/20">
+                <div className="absolute left-0 top-0 w-3 h-3 rounded-full bg-primary mt-1 -ml-[7px]"></div>
+                <p className="text-muted-foreground leading-relaxed text-lg">
+                  I'm passionate about creating intuitive, accessible, and performant web experiences that delight users and drive business results.
+                </p>
+              </div>
+              
+              <div className="flex flex-wrap gap-4 pt-4">
+                {/* <Button asChild className="h-11 px-8">
+                  <Link href="#contact" scroll={false}>
+                    Contact Me
+                  </Link>
+                </Button> */}
+                <Button variant="outline" className="h-11 px-8">
+                  <a href="/404">Download CV</a>
+                </Button>
+              </div>
             </div>
-          </div>
+          </motion.div>
+
+          {/* Timeline section */}
+          <motion.div
+            className="space-y-8"
+            initial={{ opacity: 0, x: 20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.8, duration: 0.6 }}
+          >
+            <h3 className="text-3xl font-semibold">Experience <span className="text-primary">&</span> Education</h3>
+            
+            <div className="relative">
+              {/* Timeline line */}
+              <div className="absolute left-6 top-0 h-full w-0.5 bg-gradient-to-b from-primary/20 via-primary to-primary/20 -z-10"></div>
+              
+              <div className="space-y-6">
+                {timelineItems.map((item, index) => (
+                  <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 0.9 + index * 0.15 }}
+                  >
+                    <Card className="border shadow-sm hover:shadow-md transition-shadow overflow-hidden group">
+                      <CardContent className="p-0">
+                        <div className="flex gap-6 p-6">
+                          <div className={`h-12 w-12 rounded-full ${item.color} flex items-center justify-center shrink-0 mt-1 group-hover:scale-110 transition-transform`}>
+                            {item.icon}
+                          </div>
+                          <div>
+                            <h4 className="text-xl font-medium">{item.title}</h4>
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mt-1">
+                              <span className="text-muted-foreground font-medium">{item.company}</span>
+                              <span className="hidden sm:block text-muted-foreground">•</span>
+                              <span className="text-muted-foreground">{item.period}</span>
+                            </div>
+                            <p className="mt-3 text-muted-foreground">{item.description}</p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

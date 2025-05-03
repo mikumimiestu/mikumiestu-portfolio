@@ -63,6 +63,33 @@ const projects = [
     liveLink: "https://tng-adm-1.vercel.app/dashboard",
     githubLink: "/404",
     category: "web"
+  },
+  {
+    title: "E-Learning Coding App",
+    description: "E-learning app for learning coding with interactive lessons and quizzes.",
+    image: "/assets/project1.png",
+    tags: ["React Native", "Expo"],
+    liveLink: "/404",
+    githubLink: "/404",
+    category: "mobile"
+  },
+  {
+    title: "Anime Film App",
+    description: "Anime film app built with React Native and Expo, to make it easier for users to find anime films.",
+    image: "/assets/project2.png",
+    tags: ["React Native", "Expo"],
+    liveLink: "/404",
+    githubLink: "/404",
+    category: "mobile"
+  },
+  {
+    title: "Food Pizza App",
+    description: "Food pizza app built with React Native and Expo, to make it easier for users to find food pizza.",
+    image: "/assets/project3.png",
+    tags: ["React Native", "Expo"],
+    liveLink: "/404",
+    githubLink: "/404",
+    category: "mobile"
   }
 ];
 
