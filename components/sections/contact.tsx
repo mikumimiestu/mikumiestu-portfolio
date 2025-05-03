@@ -87,7 +87,7 @@ export function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
+                {/* <div className="flex items-start space-x-4">
                   <div className="bg-primary/10 p-3 rounded-full">
                     <Phone className="h-6 w-6 text-primary" />
                   </div>
@@ -95,7 +95,7 @@ export function Contact() {
                     <h4 className="font-medium">Phone</h4>
                     <p className="text-muted-foreground">+62 81378234772</p>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="flex items-start space-x-4">
                   <div className="bg-primary/10 p-3 rounded-full">
@@ -103,7 +103,7 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="font-medium">Location</h4>
-                    <p className="text-muted-foreground">Padang, Sumatera Barat, Indonesia</p>
+                    <p className="text-muted-foreground">Padang, West Sumatera, Indonesia</p>
                   </div>
                 </div>
               </div>
