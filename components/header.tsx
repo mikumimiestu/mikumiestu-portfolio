@@ -88,13 +88,16 @@ export function Header() {
             : "bg-background/50 py-3",
           "border-border/50"
         )}>
+
+          {/* Logo and Navigation */}
           <div className="flex items-center justify-between">
-            <button
-              onClick={() => handleNavClick("#home")}
-              className="text-xl font-bold transition-transform hover:scale-105"
-            >
-              Mikumiestu<span className="text-primary">.</span>
-            </button>
+          <button
+            onClick={() => handleNavClick("#home")}
+            className="text-xl font-bold transition-transform hover:scale-105 flex items-center gap-2"
+          >
+            <img src="/images/icon.png" alt="Mikumiestu Icon" className="w-6 h-6" />
+            Mikumiestu<span className="text-primary">.</span>
+          </button>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex md:items-center md:gap-1">
