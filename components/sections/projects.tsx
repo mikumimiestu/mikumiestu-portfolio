@@ -11,6 +11,7 @@ import Link from "next/link";
 
 const projects = [
   {
+    id: 1,
     title: "Webcraft",
     description: "A website to display products sold by a webcraft and make it easier for users to order products.",
     image: "https://www.technovagroupinc.com/static/media/webcraft.e061e2396bcece9503b4.png",
@@ -20,6 +21,7 @@ const projects = [
     category: "web"
   },
   {
+    id: 2,
     title: "First Nuxt.js",
     description: "My first website using Nuxt.js, built with Nuxt.js and Tailwind CSS, to introduce Nuxt.js.",
     image: "https://www.technovagroupinc.com/static/media/nuxt1.587ef4c76e92e04c1a69.png",
@@ -29,6 +31,7 @@ const projects = [
     category: "web"
   },
   {
+    id: 3,
     title: "TNG Coffee Shop",
     description: "Coffee Shop Website to introduce coffee products sold by a coffee shop and make it easier for users to order products.",
     image: "https://www.technovagroupinc.com/static/media/coffee-tng.12a66ec5fe571788ae3a.png",
@@ -38,6 +41,7 @@ const projects = [
     category: "web"
   },
   {
+    id: 4,
     title: "Pet Shop",
     description: "Pet shop website built with Vue.js and Tailwind CSS, to make it easier for users to find the pets they want.",
     image: "https://www.technovagroupinc.com/static/media/tng-ptshp-1.ed38f6684e04c3b92ed6.png",
@@ -47,6 +51,7 @@ const projects = [
     category: "web"
   },
   {
+    id: 5,
     title: "Company Profile",
     description: "Immersive photo gallery showcasing travel photography with location mapping and storytelling.",
     image: "https://www.technovagroupinc.com/static/media/tng-profile-1.c480aedc8c84a9a78883.png",
@@ -56,6 +61,7 @@ const projects = [
     category: "web"
   },
   {
+    id: 6,
     title: "Admin Dashboard",
     description: "Admin dashboard for managing user data and displaying statistics using Chart.js.",
     image: "https://www.technovagroupinc.com/static/media/tng-adm-1.67509ef38abf5eeee5f1.png",
@@ -65,6 +71,7 @@ const projects = [
     category: "web"
   },
   {
+    id: 7,
     title: "E-Learning Coding App",
     description: "E-learning app for learning coding with interactive lessons and quizzes.",
     image: "/assets/project1.png",
@@ -74,6 +81,7 @@ const projects = [
     category: "mobile"
   },
   {
+    id: 8,
     title: "Anime Film App",
     description: "Anime film app built with React Native and Expo, to make it easier for users to find anime films.",
     image: "/assets/project2.png",
@@ -83,6 +91,7 @@ const projects = [
     category: "mobile"
   },
   {
+    id: 9,
     title: "Food Pizza App",
     description: "Food pizza app built with React Native and Expo, to make it easier for users to find food pizza.",
     image: "/assets/project3.png",
@@ -153,7 +162,11 @@ export function Projects() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+          {/* Mengurutkan Project Berdasarkan ID Terbesar dan Terkecil */}
+          {[...filteredProjects]
+            .sort((a, b) => b.id - a.id)
+            .slice(0, 6)
+            .map((project, index) => (
             <Card
               key={project.title}
               className={cn(

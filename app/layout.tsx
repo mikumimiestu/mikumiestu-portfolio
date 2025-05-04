@@ -9,8 +9,11 @@ import { Footer } from '@/components/footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Mikumiestu | Zaki',
+  title: 'Portfolio | Mikumiestu | Zaki Mushthafa Billah',
   description: 'Personal portfolio showcasing creative development work and projects',
+  icons: {
+    icon: '/images/icon.png',
+  }
 };
 
 export default function RootLayout({
