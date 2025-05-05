@@ -22,7 +22,7 @@ const skillsCategories = [
   {
     title: "Backend Development",
     icon: <Server className="h-10 w-10" />,
-    skills: ["Node.js", "Express", "RESTful APIs", "GraphQL", "Authentication", "Serverless Functions"]
+    skills: ["Node.js", "Express", "RESTful APIs", "GraphQL", "Authentication"]
   },
   {
     title: "Database",
@@ -32,17 +32,17 @@ const skillsCategories = [
   {
     title: "Design Tools",
     icon: <PenTool className="h-10 w-10" />,
-    skills: ["Figma", "Adobe XD", "Photoshop", "Illustrator", "Sketch", "InVision"]
+    skills: ["Figma", "Adobe XD", "Illustrator", "Sketch"]
   },
   {
     title: "Mobile Development",
     icon: <Smartphone className="h-10 w-10" />,
-    skills: ["React Native", "Responsive Design", "PWAs", "App Performance", "Mobile UX", "Touch Interactions"]
+    skills: ["React Native", "Responsive Design", "PWAs", "App Performance", "Mobile UX"]
   },
   {
     title: "Design Principles",
     icon: <Figma className="h-10 w-10" />,
-    skills: ["Color Theory", "Typography", "Composition", "Design Systems", "User-Centered Design", "Accessibility"]
+    skills: ["Color Theory", "Typography", "Composition", "Design Systems", "Accessibility"]
   },
   {
     title: "Workflow",

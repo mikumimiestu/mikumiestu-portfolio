@@ -19,7 +19,7 @@ export function About() {
       id: 1,
       title: "Frontend Developer",
       company: "Tech Nova Group",
-      period: "2024 - Now",
+      period: "2024 - Present",
       description: "Leading frontend development for enterprise applications using React and Next.js.",
       icon: <Briefcase className="h-5 w-5 text-primary" />,
       color: "bg-primary/10"
@@ -28,7 +28,7 @@ export function About() {
       id: 2,
       title: "CEO & Owner",
       company: "Tech Nova Group",
-      period: "2024 - Now",
+      period: "2024 - Present",
       description: "Leading a team of developers to deliver high-quality software solutions.",
       icon: <Briefcase className="h-5 w-5 text-emerald-500" />,
       color: "bg-emerald-500/10"
@@ -37,7 +37,7 @@ export function About() {
       id: 3,
       title: "Informatics Engineering",
       company: "University Putra Indonesia 'YPTK' Padang",
-      period: "2023 - Now",
+      period: "2023 - Present",
       description: "Bachelor's degree with focus on web technologies and software engineering.",
       icon: <GraduationCap className="h-5 w-5 text-blue-500" />,
       color: "bg-blue-500/10"

@@ -96,7 +96,7 @@ export function Header() {
             className="text-xl font-bold transition-transform hover:scale-105 flex items-center gap-2"
           >
             <img src="/images/icon.png" alt="Mikumiestu Icon" className="w-6 h-6" />
-            Mikumiestu<span className="text-primary">.</span>
+            Mikumiestu.
           </button>
 
             {/* Desktop Navigation */}
