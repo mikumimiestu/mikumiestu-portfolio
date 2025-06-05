@@ -12,61 +12,61 @@ import Link from "next/link";
 const projects = [
   {
     id: 1,
-    title: "Webcraft",
-    description: "A website to display products sold by a webcraft and make it easier for users to order products.",
-    image: "https://www.technovagroupinc.com/static/media/webcraft.e061e2396bcece9503b4.png",
-    tags: ["Next.js", "Tailwind CSS"],
-    liveLink: "https://web-dev-web.vercel.app/",
+    title: "Car Rental",
+    description: "Car rental website built with Vue.js and Tailwind CSS, to make it easier for users to find the car they want.",
+    image: "/assets/project4.png",
+    tags: ["Vue.js", "Tailwind CSS"],
+    liveLink: "https://car-rental-tau-green.vercel.app/",
     githubLink: "/404",
     category: "web"
   },
   {
     id: 2,
-    title: "First Nuxt.js",
-    description: "My first website using Nuxt.js, built with Nuxt.js and Tailwind CSS, to introduce Nuxt.js.",
-    image: "https://www.technovagroupinc.com/static/media/nuxt1.587ef4c76e92e04c1a69.png",
+    title: "Padang Profile",
+    description: "Padang city profile website built with Nuxt.js and Tailwind CSS, to introduce the city of Padang to the public.",
+    image: "/assets/project9.png",
     tags: ["Nuxt.js", "Vue.js", "Tailwind CSS"],
-    liveLink: "https://first-project-nuxtjs.vercel.app/",
-    githubLink: "/404",
+    liveLink: "https://padang-city-profile.vercel.app",
+    githubLink: "https://github.com/mikumimiestu/Padang-city-profile.git",
     category: "web"
   },
   {
     id: 3,
-    title: "TNG Coffee Shop",
-    description: "Coffee Shop Website to introduce coffee products sold by a coffee shop and make it easier for users to order products.",
-    image: "https://www.technovagroupinc.com/static/media/coffee-tng.12a66ec5fe571788ae3a.png",
-    tags: ["TypeScript", "React.js", "Tailwind CSS"],
-    liveLink: "https://tng-coffe-1.tng-portfolio.my.id/",
+    title: "Coffee App",
+    description: "Coffee app built with Flutter, to make it easier for users to find coffee shops.",
+    image: "/assets/project5.png",
+    tags: ["Flutter", "Dart"],
+    liveLink: "/404",
     githubLink: "/404",
-    category: "web"
+    category: "mobile"
   },
   {
     id: 4,
-    title: "Pet Shop",
-    description: "Pet shop website built with Vue.js and Tailwind CSS, to make it easier for users to find the pets they want.",
-    image: "https://www.technovagroupinc.com/static/media/tng-ptshp-1.ed38f6684e04c3b92ed6.png",
-    tags: ["Vue.js", "Tailwind CSS"],
-    liveLink: "https://tng-ptshp-1.tng-portfolio.my.id/",
-    githubLink: "/404",
+    title: "Ramyo Me",
+    description: "Website anime list with user profile and favorite anime list, built with TypeScript, React.js, and Tailwind CSS.",
+    image: "/assets/project10.png",
+    tags: ["TypeScript", "React.js", "Tailwind CSS"],
+    liveLink: "https://ramyo-me.vercel.app/",
+    githubLink: "https://github.com/mikumimiestu/ramyo-me.git",
     category: "web"
   },
   {
     id: 5,
-    title: "Company Profile",
-    description: "Immersive photo gallery showcasing travel photography with location mapping and storytelling.",
-    image: "https://www.technovagroupinc.com/static/media/tng-profile-1.c480aedc8c84a9a78883.png",
-    tags: ["TypeScript", "React.js", "Tailwind CSS"],
-    liveLink: "https://tng-profile-1.tng-portfolio.my.id/",
+    title: "Coffee Heaven",
+    description: "Coffee Heaven is a coffee shop website built with Nuxt.js and Tailwind CSS, to make it easier for users to find coffee shops.",
+    image: "/assets/project6.png",
+    tags: ["TypeScript", "Nuxt.js", "Vue.js", "Tailwind CSS"],
+    liveLink: "https://coffee-heaven-kappa.vercel.app/",
     githubLink: "/404",
     category: "web"
   },
   {
     id: 6,
-    title: "Admin Dashboard",
-    description: "Admin dashboard for managing user data and displaying statistics using Chart.js.",
-    image: "https://www.technovagroupinc.com/static/media/tng-adm-1.67509ef38abf5eeee5f1.png",
-    tags: ["TypeScript", "Next.js", "Tailwind CSS"],
-    liveLink: "https://tng-adm-1.vercel.app/dashboard",
+    title: "Lux Stay",
+    description: "Lux Stay is a hotel booking website built with Nuxt.js and Tailwind CSS, to make it easier for users to book hotels.",
+    image: "/assets/project7.png",
+    tags: ["TypeScript", "Nuxt.js", "Vue.js","Tailwind CSS"],
+    liveLink: "https://luxstay-book-hotel.vercel.app/",
     githubLink: "/404",
     category: "web"
   },
@@ -99,6 +99,16 @@ const projects = [
     liveLink: "/404",
     githubLink: "/404",
     category: "mobile"
+  },
+  {
+    id: 10,
+    title: "Saham Kita",
+    description: "Saham Kita is a stock market website built with Next.js, React.js, and Tailwind CSS, to make it easier for users to find stock market information.",
+    image: "/assets/project8.png",
+    tags: ["Next.js", "React.js", "Tailwind CSS", "TypeScript", "Shadcn UI"],
+    liveLink: "https://saham-kita-id.vercel.app/",
+    githubLink: "/404",
+    category: "web"
   }
 ];
 

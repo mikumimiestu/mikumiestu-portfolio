@@ -17,21 +17,12 @@ export function About() {
   const timelineItems = [
     {
       id: 1,
-      title: "Frontend Developer",
-      company: "Tech Nova Group",
-      period: "2024 - Present",
-      description: "Leading frontend development for enterprise applications using React and Next.js.",
+      title: "Founder AstByte",
+      company: "AstByte",
+      period: "2023 - Present",
+      description: "AstByte is a software development company specializing in web and mobile applications.",
       icon: <Briefcase className="h-5 w-5 text-primary" />,
       color: "bg-primary/10"
-    },
-    {
-      id: 2,
-      title: "CEO & Owner",
-      company: "Tech Nova Group",
-      period: "2024 - Present",
-      description: "Leading a team of developers to deliver high-quality software solutions.",
-      icon: <Briefcase className="h-5 w-5 text-emerald-500" />,
-      color: "bg-emerald-500/10"
     },
     {
       id: 3,

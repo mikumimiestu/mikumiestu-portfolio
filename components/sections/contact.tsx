@@ -3,13 +3,9 @@
 import { useRef, useState } from "react";
 import { useInView } from "@/hooks/use-in-view";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Mail, MapPin, Phone, Twitter } from "lucide-react";
 
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -57,10 +53,10 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="flex justify-center">
           <Card 
             className={cn(
-              "lg:col-span-1 border bg-card hover:shadow-md transition-all duration-500",
+              "w-full max-w-md border bg-card hover:shadow-md transition-all duration-500",
               isInView ? "translate-x-0 opacity-100" : "translate-x-[-20px] opacity-0",
               isInView && "transition-delay-300"
             )}
@@ -69,13 +65,33 @@ export function Contact() {
             }}
           >
             <CardContent className="p-6 space-y-8">
-              <div>
+              <div className="text-center">
                 <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
                 <p className="text-muted-foreground mb-6">
                   Feel free to reach out through any of these channels.
                 </p>
               </div>
 
+              <div className="flex items-start space-x-4">
+                  <div className="bg-primary/10 p-3 rounded-full">
+                    <Twitter className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium">Email</h4>
+                    <p className="text-muted-foreground">@Jakiine</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="bg-primary/10 p-3 rounded-full">
+                    <Instagram className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium">Email</h4>
+                    <p className="text-muted-foreground">@zakimshbll</p>
+                  </div>
+                </div>
+                
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="bg-primary/10 p-3 rounded-full">
@@ -83,19 +99,9 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="font-medium">Email</h4>
-                    <p className="text-muted-foreground">zaki@technovagroupinc.com</p>
+                    <p className="text-muted-foreground">zaki@astbyte.com</p>
                   </div>
                 </div>
-
-                {/* <div className="flex items-start space-x-4">
-                  <div className="bg-primary/10 p-3 rounded-full">
-                    <Phone className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium">Phone</h4>
-                    <p className="text-muted-foreground">+62 81378234772</p>
-                  </div>
-                </div> */}
 
                 <div className="flex items-start space-x-4">
                   <div className="bg-primary/10 p-3 rounded-full">
@@ -107,48 +113,6 @@ export function Contact() {
                   </div>
                 </div>
               </div>
-            </CardContent>
-          </Card>
-
-          <Card 
-            className={cn(
-              "lg:col-span-2 border bg-card hover:shadow-md transition-all duration-500",
-              isInView ? "translate-x-0 opacity-100" : "translate-x-[20px] opacity-0",
-              isInView && "transition-delay-400"
-            )}
-            style={{
-              transitionDelay: isInView ? "400ms" : "0ms"
-            }}
-          >
-            <CardContent className="p-6">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input id="name" placeholder="Your name" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="Your email" required />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" placeholder="Subject of your message" required />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    placeholder="Your message"
-                    rows={6}
-                    required
-                  />
-                </div>
-                <Button type="submit" className="w-full" disabled={isSubmitting}>
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </Button>
-              </form>
             </CardContent>
           </Card>
         </div>
