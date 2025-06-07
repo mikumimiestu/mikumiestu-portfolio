@@ -109,6 +109,16 @@ const projects = [
     liveLink: "https://saham-kita-id.vercel.app/",
     githubLink: "/404",
     category: "web"
+  },
+  {
+    id: 11,
+    title: "Sky Booker",
+    description: "Sky Booker is a website for booking airline tickets and monitoring of aircraft departure schedules",
+    image: "https://www.astbyte.com/portfolio/skybooker.png",
+    tags: ["Angluar", "TypeScript", "Tailwind CSS"],
+    liveLink: "https://sky-booker-ashen.vercel.app/",
+    githubLink: "/404",
+    category: "web"
   }
 ];
 
