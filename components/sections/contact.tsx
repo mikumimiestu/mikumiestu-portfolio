@@ -77,7 +77,7 @@ export function Contact() {
                     <Twitter className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-medium">Email</h4>
+                    <h4 className="font-medium">X or Twitter</h4>
                     <p className="text-muted-foreground">@Jakiine</p>
                   </div>
                 </div>
@@ -87,7 +87,7 @@ export function Contact() {
                     <Instagram className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-medium">Email</h4>
+                    <h4 className="font-medium">Instagram</h4>
                     <p className="text-muted-foreground">@zakimshbll</p>
                   </div>
                 </div>

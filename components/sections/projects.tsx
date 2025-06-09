@@ -119,6 +119,16 @@ const projects = [
     liveLink: "https://sky-booker-ashen.vercel.app/",
     githubLink: "/404",
     category: "web"
+  },
+  {
+    id: 12,
+    title: "Team Project Managament (Simple CRUD)",
+    description: "This project is created to manage the project team astbyte",
+    image: "/assets/project11.png",
+    tags: ["React", "Vite", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
+    liveLink: "/404",
+    githubLink: "/404",
+    category: "web"
   }
 ];
 
