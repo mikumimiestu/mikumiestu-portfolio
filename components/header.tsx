@@ -86,7 +86,7 @@ export function Header() {
           isScrolled 
             ? "bg-background/80 py-2" 
             : "bg-background/50 py-3",
-          "border-border/50"
+          "border border-gray-400/40"
         )}>
 
           {/* Logo and Navigation */}
@@ -95,7 +95,7 @@ export function Header() {
             onClick={() => handleNavClick("#home")}
             className="text-xl font-bold transition-transform hover:scale-105 flex items-center gap-2"
           >
-            <img src="/images/icon.png" alt="Mikumiestu Icon" className="w-6 h-6" />
+            <img src="/images/icon.png" alt="Mikumiestu Icon" className="w-6 h-6 dark:invert" />
             Mikumiestu.
           </button>
 

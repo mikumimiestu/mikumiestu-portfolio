@@ -106,6 +106,11 @@ export function About() {
                 </Button> */}
                 <Button variant="outline" className="h-11 px-8">
                   <a href="/404">Download CV</a>
+                  <img 
+                    src="https://www.svgrepo.com/show/375019/pdf-ext.svg" 
+                    alt="" 
+                    className="h-5 ml-2 dark:invert" 
+                  />
                 </Button>
               </div>
             </div>

@@ -129,7 +129,37 @@ const projects = [
     liveLink: "/404",
     githubLink: "/404",
     category: "web"
-  }
+  },
+  {
+    id: 13,
+    title: "Secure Bank",
+    description: "Landing page for Secure Bank",
+    image: "/assets/project12.png",
+    tags: ["Angular", "TypeScript", "Tailwind CSS"],
+    liveLink: "https://secure-bank-sigma.vercel.app/",
+    githubLink: "https://github.com/mikumimiestu/secure-bank.git",
+    category: "web"
+  },
+  {
+    id: 14,
+    title: "Money Tracker",
+    description: "Website for tracking money and manage expense",
+    image: "/assets/project13.png",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL", "Recharts"],
+    liveLink: "https://money-tracker.astbyte.com/",
+    githubLink: "/404",
+    category: "web"
+  },
+  {
+    id: 15,
+    title: "Pharmacy Medicare",
+    description: "Pharmacy Medicare is a website for managing pharmacy and customer",
+    image: "/assets/project14.png",
+    tags: ["Vue", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
+    liveLink: "https://pharmacy-medicare.vercel.app/",
+    githubLink: "https://github.com/mikumimiestu/pharmacy-medicare.git",
+    category: "web"
+  },
 ];
 
 const categories = [
@@ -214,7 +244,7 @@ export function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-90 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="flex gap-4">

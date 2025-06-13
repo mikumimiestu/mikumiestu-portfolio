@@ -7,47 +7,56 @@ import { cn } from "@/lib/utils";
 import { 
   Code, Database, Figma, Palette, PenTool, Server, Smartphone, Workflow
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const skillsCategories = [
   {
     title: "Frontend Development",
     icon: <Code className="h-10 w-10" />,
-    skills: ["HTML/CSS", "JavaScript/TypeScript", "React.js", "Next.js", "Tailwind CSS", "Framer Motion"]
+    skills: ["JavaScript/TypeScript", "React.js", "Next.js", "Tailwind CSS", "Vue.js", "Angular"],
+    color: "text-blue-500"
   },
   {
     title: "UI/UX Design",
     icon: <Palette className="h-10 w-10" />,
-    skills: ["UI Design", "UX Research", "Wireframing", "Prototyping", "Design Systems", "Accessibility"]
+    skills: ["UI Design", "Prototyping", "Design Systems", "Accessibility"],
+    color: "text-purple-500"
   },
   {
     title: "Backend Development",
     icon: <Server className="h-10 w-10" />,
-    skills: ["Node.js", "Express", "RESTful APIs", "GraphQL", "Authentication"]
+    skills: ["Node.js", "Express", "RESTful APIs", "Authentication"],
+    color: "text-green-500"
   },
   {
     title: "Database",
     icon: <Database className="h-10 w-10" />,
-    skills: ["MongoDB", "PostgreSQL", "Firebase", "Supabase"]
+    skills: ["MongoDB", "PostgreSQL", "Firebase", "Supabase", "Prisma"],
+    color: "text-amber-500"
   },
   {
     title: "Design Tools",
     icon: <PenTool className="h-10 w-10" />,
-    skills: ["Figma", "Adobe XD", "Illustrator", "Sketch"]
+    skills: ["Figma", "Adobe XD", "Illustrator", "Sketch"],
+    color: "text-pink-500"
   },
   {
     title: "Mobile Development",
     icon: <Smartphone className="h-10 w-10" />,
-    skills: ["React Native", "Responsive Design", "PWAs", "App Performance", "Mobile UX"]
+    skills: ["React Native", "Responsive Design", "PWAs", "App Performance", "Mobile UX"],
+    color: "text-red-500"
   },
   {
     title: "Design Principles",
     icon: <Figma className="h-10 w-10" />,
-    skills: ["Color Theory", "Typography", "Composition", "Design Systems", "Accessibility"]
+    skills: ["Color Theory", "Typography", "Composition", "Design Systems", "Accessibility"],
+    color: "text-indigo-500"
   },
   {
     title: "Workflow",
     icon: <Workflow className="h-10 w-10" />,
-    skills: ["Git", "GitHub/GitLab", "CI/CD", "Project Management"]
+    skills: ["Git", "GitHub/GitLab", "CI/CD", "Project Management"],
+    color: "text-teal-500"
   }
 ];
 
@@ -59,55 +68,68 @@ export function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="py-20"
+      className="py-20 bg-gradient-to-b from-background to-muted/10"
     >
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center text-center mb-12">
-          <h2 className={cn(
-            "text-3xl font-bold tracking-tight sm:text-4xl mb-4 transition-all duration-700",
-            isInView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          )}>
+        <motion.div 
+          className="flex flex-col items-center text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">
             My Skills
           </h2>
-          <div className={cn(
-            "h-1 w-20 bg-primary rounded-full mb-6 transition-all duration-700 delay-100",
-            isInView ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
-          )}></div>
-          <p className={cn(
-            "text-lg text-muted-foreground max-w-3xl transition-all duration-700 delay-200",
-            isInView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          )}>
-            I've developed expertise in a variety of technologies and design methodologies.
+          <motion.div
+            className="h-1 w-20 bg-gradient-to-r from-primary to-secondary rounded-full mb-6"
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : {}}
+            transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          />
+          <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
+            I've developed expertise in a variety of technologies and design methodologies that help me build exceptional digital experiences.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillsCategories.map((category, index) => (
-            <Card
+            <motion.div
               key={category.title}
-              className={cn(
-                "border bg-card hover:shadow-md transition-all duration-500 ease-in-out hover:-translate-y-1",
-                isInView 
-                  ? "translate-y-0 opacity-100" 
-                  : "translate-y-10 opacity-0",
-                isInView && `transition-delay-[${300 + (index * 100)}ms]`
-              )}
-              style={{
-                transitionDelay: isInView ? `${300 + (index * 100)}ms` : "0ms"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ 
+                delay: 0.1 + index * 0.1,
+                duration: 0.6,
+                type: "spring",
+                stiffness: 100
               }}
+              whileHover={{ y: -5 }}
             >
-              <CardContent className="p-6">
-                <div className="mb-4 text-primary">{category.icon}</div>
-                <h3 className="text-xl font-semibold mb-3">{category.title}</h3>
-                <ul className="space-y-2">
-                  {category.skills.map((skill) => (
-                    <li key={skill} className="text-muted-foreground">
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+              <Card className="border bg-card/50 hover:bg-card hover:shadow-lg transition-all h-full group overflow-hidden">
+                <CardContent className="p-6 relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  <div className={`mb-4 ${category.color} transition-colors group-hover:text-primary`}>
+                    {category.icon}
+                  </div>
+                  
+                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                    {category.title}
+                  </h3>
+                  
+                  <ul className="space-y-2">
+                    {category.skills.map((skill) => (
+                      <li 
+                        key={skill} 
+                        className="text-muted-foreground flex items-center before:content-[''] before:block before:w-2 before:h-2 before:rounded-full before:bg-primary/50 before:mr-2 group-hover:text-foreground transition-colors"
+                      >
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
