@@ -175,8 +175,8 @@ export function Projects() {
   const isInView = useInView(ref, { once: true, threshold: 0.1 });
 
   const filteredProjects = activeCategory === "all" 
-    ? projects 
-    : projects.filter(project => project.category === activeCategory);
+    ? projects.slice(0, 6) // Show only 6 projects when "All" is selected
+    : projects.filter(project => project.category === activeCategory); // Show all projects when a category is selected
 
   return (
     <section
@@ -222,10 +222,8 @@ export function Projects() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Mengurutkan Project Berdasarkan ID Terbesar dan Terkecil */}
           {[...filteredProjects]
             .sort((a, b) => b.id - a.id)
-            .slice(0, 6)
             .map((project, index) => (
             <Card
               key={project.title}
