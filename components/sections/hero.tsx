@@ -11,7 +11,7 @@ export function Hero() {
   const [isVisible, setIsVisible] = useState(false);
   const [typingText, setTypingText] = useState("");
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const lastUpdateDate = "13 June 2025";
+  const lastUpdateDate = "15 June 2025";
 
   const roles = [
     "Full Stack Developer",
