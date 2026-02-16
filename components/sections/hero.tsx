@@ -11,7 +11,7 @@ export function Hero() {
   const [isVisible, setIsVisible] = useState(false);
   const [typingText, setTypingText] = useState("");
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const lastUpdateDate = "15 June 2025";
+  const lastUpdateDate = "16 Feb 2026";
 
   const roles = [
     "Full Stack Developer",
@@ -29,13 +29,23 @@ export function Hero() {
     { name: "Nuxt.js", icon: "https://drive.alkademi.id/v1/upload/program/1693564681828.png" },
     { name: "Laravel", icon: "https://www.svgrepo.com/show/353985/laravel.svg" },
     { name: "TypeScript", icon: "https://www.svgrepo.com/show/349540/typescript.svg" },
-    { name: "Tailwind CSS", icon: "https://www.svgrepo.com/show/374118/tailwind.svg" },
+    { name: "Tailwind CSS", icon: "https://www.svgrepo.com/show/354431/tailwindcss-icon.svg" },
     { name: "PostgreSQL", icon: "https://www.svgrepo.com/show/354200/postgresql.svg" },
-    { name: "Angular", icon: "https://www.svgrepo.com/show/452156/angular.svg" },
+    { name: "Angular", icon: "https://www.svgrepo.com/show/373427/angular.svg" },
     { name: "Ubuntu", icon: "https://www.svgrepo.com/show/452122/ubuntu.svg" },
     { name: "Python", icon: "https://www.svgrepo.com/show/452091/python.svg" },
     { name: "Prisma", icon: "https://www.svgrepo.com/show/354210/prisma.svg" },
     { name: "Flutter", icon: "https://www.svgrepo.com/show/373604/flutter.svg" },
+    { name: "Akamai", icon: "https://www.svgrepo.com/show/353385/akamai.svg" },
+    { name: "Vercel", icon: "https://salesforceventures.com/wp-content/uploads/2022/05/Vercel-e1652981744227.png?w=1024" },
+    { name: "Netlify", icon: "https://upload.wikimedia.org/wikipedia/commons/9/97/Netlify_logo_%282%29.svg" },
+    { name: "GitHub", icon: "https://www.svgrepo.com/show/512317/github-142.svg" },
+    { name: "Astro", icon: "https://www.svgrepo.com/show/373446/astro.svg" },
+    { name: "Docker", icon: "https://www.svgrepo.com/show/448221/docker.svg" },
+    { name: "Svelte", icon: "https://www.svgrepo.com/show/374109/svelte.svg" },
+    { name: "Vue.js", icon: "https://www.svgrepo.com/show/493625/vue-vuejs-javascript-js-framework.svg" },
+    { name: "Firebase", icon: "https://www.svgrepo.com/show/353735/firebase.svg" },
+    { name: "Supabase", icon: "https://storage.googleapis.com/mailersend-website-bucket/integrations/supabase-logo-icon.png" },
   ];
 
   // Social links data
@@ -283,7 +293,7 @@ export function Hero() {
               <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(120,119,198,0.1)_70%)] animate-spin-slow"></div>
               <div className="h-full w-full rounded-full bg-muted/70 backdrop-blur-sm border border-border/50 flex items-center justify-center overflow-hidden shadow-inner">
                 <motion.img
-                  src="/images/profile.jpg"
+                  src="/images/profile-2.png"
                   alt="Profile"
                   className="w-full h-full object-cover"
                   whileHover={{ scale: 1.05 }}
