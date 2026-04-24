@@ -4,16 +4,17 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false);
   const [typingText, setTypingText] = useState("");
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const lastUpdateDate = "16 Feb 2026";
+  const lastUpdateDate = "24 Apr 2026";
 
   const roles = [
+    "Founder & CEO at ASTBYTE",
     "Full Stack Developer",
     "Frontend Specialist",
     "Backend Engineer",
@@ -22,7 +23,7 @@ export function Hero() {
     "Next.js Pro"
   ];
 
-  // Tech stack data
+  // Tech stack data - full list restored
   const techStack = [
     { name: "React", icon: "https://www.svgrepo.com/show/354259/react.svg" },
     { name: "Next.js", icon: "https://www.svgrepo.com/show/378440/nextjs-fill.svg" },
@@ -56,25 +57,27 @@ export function Hero() {
     { icon: Twitter, href: "https://x.com/Jakiine", label: "Twitter" }
   ];
 
-  // Animation variants
+  // Animation variants (Smoother easing)
   const container = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15
+        staggerChildren: 0.1,
+        delayChildren: 0.2
       }
     }
   };
 
   const item = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 15 },
     show: { 
       opacity: 1, 
       y: 0, 
       transition: { 
-        duration: 0.6,
-        ease: [0.16, 1, 0.3, 1]
+        type: "spring",
+        stiffness: 100,
+        damping: 15
       } 
     }
   };
@@ -98,11 +101,10 @@ export function Hero() {
       }
 
       if (!isDeleting && charIndex === currentRole.length) {
-        // Pause at end of typing before deleting
         timeoutId = setTimeout(() => {
           isDeleting = true;
           type();
-        }, 2000);
+        }, 2500); // Wait a bit longer before deleting
         return;
       } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
@@ -110,7 +112,7 @@ export function Hero() {
         currentRole = roles[(currentRoleIndex + 1) % roles.length];
       }
 
-      const speed = isDeleting ? 50 : 150;
+      const speed = isDeleting ? 40 : 120;
       timeoutId = setTimeout(type, speed);
     };
 
@@ -121,113 +123,76 @@ export function Hero() {
   return (
     <section 
       id="home" 
-      className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center py-16 overflow-hidden bg-gradient-to-b from-background/10 via-background/50 to-background/80"
+      className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center py-20 overflow-hidden bg-background"
     >
-      {/* Animated background blobs */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
+      {/* Refined subtle background blobs */}
+      <div className="absolute inset-0 -z-10 overflow-hidden bg-gradient-to-b from-background/40 via-background/60 to-background/90">
         <motion.div 
-          className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full filter blur-3xl opacity-70"
-          animate={{
-            scale: [1, 1.2, 1],
-            x: [0, 20, 0],
-            y: [0, -20, 0]
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
+          className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/10 rounded-full filter blur-[80px] opacity-60"
+          animate={{ scale: [1, 1.1, 1], x: [0, 20, 0], y: [0, -20, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="absolute top-1/3 right-1/4 w-72 h-72 bg-secondary/20 rounded-full filter blur-3xl opacity-70"
-          animate={{
-            scale: [1, 1.3, 1],
-            x: [0, -30, 0],
-            y: [0, 20, 0]
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 5
-          }}
+          className="absolute top-1/3 right-1/4 w-80 h-80 bg-secondary/10 rounded-full filter blur-[80px] opacity-60"
+          animate={{ scale: [1, 1.2, 1], x: [0, -30, 0], y: [0, 20, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         />
         <motion.div 
-          className="absolute bottom-1/4 left-1/2 w-60 h-60 bg-accent/20 rounded-full filter blur-3xl opacity-70"
-          animate={{
-            scale: [1, 1.1, 1],
-            x: [0, 15, 0],
-            y: [0, 30, 0]
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 8
-          }}
+          className="absolute bottom-1/4 left-1/2 w-64 h-64 bg-accent/10 rounded-full filter blur-[80px] opacity-60"
+          animate={{ scale: [1, 1.15, 1], x: [0, 15, 0], y: [0, 30, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 4 }}
         />
       </div>
 
       <div className="container px-4 md:px-6 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">
-          {/* Content with staggered animations */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-14 lg:gap-20">
+          
+          {/* CONTENT SECTION */}
           <motion.div 
-            className="flex flex-col gap-6"
+            className="flex flex-col gap-7"
             variants={container}
             initial="hidden"
-            animate="show"
+            animate={isVisible ? "show" : "hidden"}
           >
-            <motion.div className="space-y-3" variants={item}>
+            <motion.div className="space-y-4" variants={item}>
               <motion.h1 
-                className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground/90 to-foreground/70"
               >
                 Hi, I'm ZAKI
               </motion.h1>
-              <motion.h2 
-                className="text-xl sm:text-2xl md:text-3xl font-medium text-muted-foreground min-h-[2.5rem] flex items-center"
-                variants={item}
-              >
+              <div className="text-2xl sm:text-3xl md:text-4xl font-medium text-muted-foreground min-h-[3rem] flex items-center">
                 <span>{typingText}</span>
                 <motion.span 
                   className="ml-1 text-primary"
-                  animate={{ opacity: [0, 1, 0] }}
-                  transition={{ duration: 0.8, repeat: Infinity }}
-                  style={{ 
-                    width: "0.5rem",
-                    height: "1.5rem",
-                    backgroundColor: "hsl(var(--primary))",
-                    display: "inline-block",
-                    marginLeft: "0.25rem"
-                  }}
+                  animate={{ opacity: [1, 0, 1] }}
+                  transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+                  style={{ width: "3px", height: "1.2em", backgroundColor: "hsl(var(--primary))", display: "inline-block" }}
                 />
-              </motion.h2>
+              </div>
             </motion.div>
             
             <motion.p 
-              className="text-lg text-muted-foreground max-w-lg leading-relaxed"
+              className="text-lg md:text-xl text-muted-foreground/90 max-w-lg leading-relaxed"
               variants={item}
             >
-              I craft <span className="font-medium text-primary">exceptional digital experiences</span> with modern technologies and user-centered design principles.
+              I craft <span className="font-semibold text-foreground">exceptional digital experiences</span> with modern technologies and user-centered design principles.
             </motion.p>
             
             <motion.div 
-              className="flex items-center gap-4 mt-2"
+              className="flex items-center gap-4 pt-2"
               variants={item}
             >
               {socialLinks.map((social) => (
                 <motion.div
                   key={social.label}
-                  whileHover={{ y: -5, scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  whileHover={{ y: -4, scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <Link
                     href={social.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-full h-12 w-12 flex items-center justify-center text-muted-foreground transition-all hover:text-foreground hover:bg-muted border border-border hover:border-primary/50 shadow-sm hover:shadow-primary/20 hover:shadow-lg"
+                    className="h-12 w-12 rounded-full bg-background/50 backdrop-blur-sm border border-border/50 flex items-center justify-center text-muted-foreground transition-all duration-300 hover:text-primary hover:border-primary/30 hover:bg-primary/5 hover:shadow-[0_0_15px_rgba(var(--primary),0.15)]"
                     aria-label={social.label}
                   >
                     <social.icon className="h-5 w-5" />
@@ -236,19 +201,18 @@ export function Hero() {
               ))}
             </motion.div>
             
-            {/* Tech stack badges */}
+            {/* Tech stack badges - Clean Minimalist style */}
             <motion.div 
-              className="flex flex-wrap gap-3 mt-4"
+              className="flex flex-wrap gap-2.5 mt-2"
               variants={item}
             >
               {techStack.map((tech) => (
                 <motion.div
                   key={tech.name}
-                  whileHover={{ scale: 1.1, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 bg-muted/80 hover:bg-muted border border-border/50 hover:border-primary/50 rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-300 backdrop-blur-sm shadow-sm hover:shadow-md"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  className="group flex items-center gap-2 bg-background/60 hover:bg-background/80 border border-border/40 hover:border-border/80 rounded-full px-3 py-1.5 text-sm font-medium transition-all duration-300 backdrop-blur-md cursor-default"
                 >
-                  <div className="relative h-5 w-5">
+                  <div className="relative h-4 w-4 opacity-80 group-hover:opacity-100 transition-opacity">
                     <Image 
                       src={tech.icon} 
                       alt={tech.name}
@@ -257,101 +221,91 @@ export function Hero() {
                       loading="lazy"
                     />
                   </div>
-                  <span className="hidden sm:inline-block">{tech.name}</span>
+                  <span className="hidden sm:inline-block text-muted-foreground group-hover:text-foreground transition-colors">{tech.name}</span>
                 </motion.div>
               ))}
             </motion.div>
             
             {/* Last update information */}
             <motion.div 
-              className="mt-6 flex items-center gap-2 text-sm text-muted-foreground/80"
+              className="mt-4 flex items-center gap-2 text-sm text-muted-foreground/60"
               variants={item}
             >
-              <motion.div
-                whileHover={{ rotate: 10 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <img 
-                  src="https://www.svgrepo.com/show/532097/clock-check.svg" 
-                  alt=""
-                  className="h-5 opacity-40 dark:invert dark:opacity-80"
-                />
-              </motion.div>
-              <span>Last updated: <span className="font-medium text-muted-foreground">{lastUpdateDate}</span></span>
+              <img 
+                src="https://www.svgrepo.com/show/532097/clock-check.svg" 
+                alt=""
+                className="h-4 w-4 opacity-60 dark:invert dark:opacity-50"
+              />
+              <span>Last updated: <span className="font-medium text-muted-foreground/80">{lastUpdateDate}</span></span>
             </motion.div>
           </motion.div>
           
-          {/* Profile image with enhanced effects */}
+          {/* PROFILE IMAGE SECTION - Refined Premium Look */}
           <motion.div 
-            className="relative mt-12 lg:mt-0"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            className="relative mt-12 lg:mt-0 flex justify-center"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+            transition={{ delay: 0.4, duration: 0.8, type: "spring", stiffness: 50 }}
           >
-            <div className="relative mx-auto w-full max-w-md aspect-square rounded-full bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 p-1.5 shadow-2xl">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-secondary opacity-10 blur-xl animate-pulse"></div>
-              <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(120,119,198,0.1)_70%)] animate-spin-slow"></div>
-              <div className="h-full w-full rounded-full bg-muted/70 backdrop-blur-sm border border-border/50 flex items-center justify-center overflow-hidden shadow-inner">
-                <motion.img
-                  src="/images/profile-2.png"
-                  alt="Profile"
-                  className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                />
+            <div className="relative w-full max-w-[24rem] aspect-square">
+              {/* Outer elegant ring */}
+              <div className="absolute inset-0 rounded-full border border-primary/10 bg-gradient-to-tr from-primary/5 via-transparent to-secondary/5 shadow-2xl shadow-primary/5"></div>
+              
+              {/* Rotating dashed border effect */}
+              <div className="absolute inset-[-10px] rounded-full border border-dashed border-border/40 animate-[spin_60s_linear_infinite]"></div>
+              
+              {/* Main image container */}
+              <div className="absolute inset-3 rounded-full bg-background/80 backdrop-blur-xl border border-border/50 flex items-center justify-center overflow-hidden shadow-inner p-1">
+                <motion.div className="relative w-full h-full rounded-full overflow-hidden bg-muted/30" whileHover={{ scale: 1.03 }} transition={{ type: "spring" }}>
+                  <img
+                    src="/images/profile-2.png"
+                    alt="Profile"
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
               </div>
               
-              {/* Tech stack floating badges */}
+              {/* FLOATING GLASS BADGES - iOS Style */}
               <motion.div 
-                className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-background/90 backdrop-blur-sm border border-border rounded-lg px-3 py-1.5 sm:px-4 sm:py-2 shadow-lg z-10"
+                className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 bg-background/70 backdrop-blur-xl border border-border/50 rounded-2xl px-4 py-2.5 shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] z-10"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.8, type: "spring" }}
-                whileHover={{ y: -5 }}
+                transition={{ delay: 0.9, type: "spring" }}
+                whileHover={{ y: -4 }}
               >
-                <div className="flex items-center gap-2">
-                  <div className="relative h-5 w-5 sm:h-6 sm:w-6">
-                    <Image 
-                      src="https://www.svgrepo.com/show/354259/react.svg" 
-                      alt="React" 
-                      fill 
-                      className="object-contain" 
-                    />
+                <div className="flex items-center gap-3">
+                  <div className="relative h-6 w-6">
+                    <Image src="https://www.svgrepo.com/show/354259/react.svg" alt="React" fill className="object-contain" />
                   </div>
-                  <span className="text-xs sm:text-sm font-medium">React Expert</span>
+                  <span className="text-sm font-semibold tracking-tight text-foreground/90">React Expert</span>
                 </div>
               </motion.div>
               
               <motion.div 
-                className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 bg-background/90 backdrop-blur-sm border border-border rounded-lg px-3 py-1.5 sm:px-4 sm:py-2 shadow-lg z-10"
+                className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-background/70 backdrop-blur-xl border border-border/50 rounded-2xl px-4 py-2.5 shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] z-10"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 1, type: "spring" }}
-                whileHover={{ y: -5 }}
+                transition={{ delay: 1.1, type: "spring" }}
+                whileHover={{ y: -4 }}
               >
-                <div className="flex items-center gap-2">
-                  <div className="relative h-5 w-5 sm:h-6 sm:w-6">
-                    <Image 
-                      src="https://www.svgrepo.com/show/378440/nextjs-fill.svg" 
-                      alt="Next.js" 
-                      fill 
-                      className="object-contain dark:invert" 
-                    />
+                <div className="flex items-center gap-3">
+                  <div className="relative h-6 w-6 bg-foreground rounded-full p-1">
+                    <Image src="https://www.svgrepo.com/show/378440/nextjs-fill.svg" alt="Next.js" fill className="object-contain invert dark:invert-0" />
                   </div>
-                  <span className="text-xs sm:text-sm font-medium">Next.js Pro</span>
+                  <span className="text-sm font-semibold tracking-tight text-foreground/90">Next.js Pro</span>
                 </div>
               </motion.div>
               
               <motion.div 
-                className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-background/90 backdrop-blur-sm border border-border rounded-lg px-3 py-1 sm:px-4 sm:py-2 shadow-lg z-10"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 1.2, type: "spring" }}
-                whileHover={{ y: -5 }}
+                className="absolute bottom-8 -right-6 sm:bottom-12 sm:-right-10 bg-background/70 backdrop-blur-xl border border-border/50 rounded-2xl px-4 py-3 shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] z-10"
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 1.3, type: "spring" }}
+                whileHover={{ x: -4 }}
               >
-                <div className="text-center">
-                  <span className="text-xs sm:text-sm font-medium text-primary">Currently working on</span>
-                  <p className="text-xs sm:text-sm">Exciting new project!</p>
+                <div className="flex flex-col items-start gap-0.5">
+                  <span className="text-[11px] font-medium text-primary uppercase tracking-wider">Status</span>
+                  <p className="text-sm font-semibold text-foreground">Building CloudNest ☁️</p>
                 </div>
               </motion.div>
             </div>
